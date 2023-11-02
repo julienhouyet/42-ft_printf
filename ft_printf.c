@@ -6,13 +6,13 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:18 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/02 11:28:59 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/02 12:41:29 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_str(va_list *arg, int *count)
+static int	ft_print_str(va_list *arg, int *count)
 {
 	char	*str;
 	int		i;
@@ -65,23 +65,4 @@ int			ft_printf(const char *str, ...)
 	}
 	va_end(argptr);
 	return (count);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	a;
-	char	*b;
-	char	c;
-
-	a = 'A';
-	b = "Hello World";
-	c = 42;
-    int written = ft_printf("Hello %%\nc1 : %c\nc2 : %s\nc3 : %d", a, b, c);
-    printf("\nCharacters written: %d\n\n", written);
-
-    int writtenr = printf("Hello %%\nc1 : %c\nc2 : %s\nc3 : %d", a, b, c);
-    printf("\nCharacters written: %d\n", writtenr);
-	return (0);
 }

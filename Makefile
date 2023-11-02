@@ -6,7 +6,7 @@
 #    By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 08:29:30 by jhouyet           #+#    #+#              #
-#    Updated: 2023/11/02 08:33:12 by jhouyet          ###   ########.fr        #
+#    Updated: 2023/11/02 14:07:38 by jhouyet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,22 +15,36 @@ NAME		= libftprintf.a
 SRCS		= ft_printf.c
 
 OBJS		= ${SRCS:.c=.o}
-CC			= gcc -Wall -Wextra -Werror
 
-%.o: %.c ft_printf.h
-			${CC} -I. -c $< -o ${<:.c=.o}
+LIB_NAME	= ./libft/libft.a
 
-all:		${NAME}
+LIB_PATH	= ./libft/
 
-$(NAME):	${OBJS} ft_printf.h
-			ar rcs ${NAME} ${OBJS}
+CC			= gcc
+
+RM			= rm -f
+
+CFLAGS	= -Wall -Wextra -Werror
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+${NAME}: ${LIB_NAME} ${OBJS}
+	ar rc ${NAME} ${OBJS}
+
+${LIB_NAME}:
+	${MAKE} bonus -C ${LIB_PATH}
+	mv ${LIB_NAME} ${NAME}
+
+all: ${NAME}
 
 clean:
-			rm -f ${OBJS}
+	${MAKE} clean -C ${LIB_PATH}
+	${RM} ${OBJS}
 
-fclean:		clean
-			rm -f ${NAME}
+fclean: clean
+	${RM} ${NAME} ${LIB_NAME}
 
-re:			fclean all
+re:	fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:	all bonus clean fclean re
