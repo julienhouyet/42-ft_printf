@@ -6,13 +6,14 @@
 #    By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 08:29:30 by jhouyet           #+#    #+#              #
-#    Updated: 2023/11/02 14:07:38 by jhouyet          ###   ########.fr        #
+#    Updated: 2023/11/02 14:41:56 by jhouyet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
-SRCS		= ft_printf.c
+SRCS		= 	ft_printf.c \
+				ft_print_str.c
 
 OBJS		= ${SRCS:.c=.o}
 

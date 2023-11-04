@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 08:30:20 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/02 14:41:16 by jhouyet          ###   ########.fr       */
+/*   Created: 2023/11/02 14:36:14 by jhouyet           #+#    #+#             */
+/*   Updated: 2023/11/02 14:42:31 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "libft/libft.h"
-# include <stdarg.h>
+static int	ft_print_str(va_list *arg, int *count)
+{
+	char	*str;
+	int		i;
 
-int			ft_printf(const char *str, ...);
-
-static int	ft_print_str(va_list *arg, int *count);
-
-#endif
+	str = va_arg(*arg, char *);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar_fd(str[i], 1);
+		i++;
+		++(*count);
+	}
+	return (0);
+}
