@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_libft.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhouyet <jhouyet@student.s19.be>           +#+  +:+       +#+        */
+/*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 10:47:06 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/10/26 14:12:07 by jhouyet          ###   ########.fr       */
+/*   Created: 2023/11/07 15:29:26 by jhouyet           #+#    #+#             */
+/*   Updated: 2023/11/07 15:33:44 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -30,4 +35,21 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putchar_fd(n + '0', fd);
 	}
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s || fd < 0)
+		return ;
+	write(fd, s, ft_strlen(s));
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

@@ -6,20 +6,17 @@
 #    By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 08:29:30 by jhouyet           #+#    #+#              #
-#    Updated: 2023/11/07 15:11:01 by jhouyet          ###   ########.fr        #
+#    Updated: 2023/11/07 15:38:35 by jhouyet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
 SRCS		= 	ft_printf.c \
-				ft_printf_str.c
+				ft_printf_str.c \
+				ft_libft.c
 
-OBJS		= ${SRCS:.c=.o}
-
-LIB_NAME	= ./libft/libft.a
-
-LIB_PATH	= ./libft/
+OBJS		= ${SRCS:.c=.o}\
 
 CC			= gcc
 
@@ -30,11 +27,8 @@ CFLAGS		= -Wall -Wextra -Werror
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}: ${LIB_NAME} ${OBJS}
+${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
-
-${LIB_NAME}:
-	${MAKE} -C ${LIB_PATH}
 
 all: ${NAME}
 
@@ -42,8 +36,7 @@ clean:
 	${RM} ${OBJS}
 
 fclean: clean
-	${RM} ${NAME}
-	${MAKE} fclean -C ${LIB_PATH}
+	${RM} $(NAME)
 
 re:	fclean all
 
