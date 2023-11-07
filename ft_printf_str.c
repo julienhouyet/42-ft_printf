@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_printf_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhouyet <jhouyet@student.s19.be>           +#+  +:+       +#+        */
+/*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 16:37:48 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/10/30 13:48:00 by jhouyet          ###   ########.fr       */
+/*   Created: 2023/11/02 14:36:14 by jhouyet           #+#    #+#             */
+/*   Updated: 2023/11/07 15:10:56 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_lstsize(t_list *lst)
+static int	ft_printf_str(va_list *arg, int *count)
 {
-	int	i;
+	char	*str;
+	int		i;
 
-	if (!lst)
-		return (0);
+	str = va_arg(*arg, char *);
 	i = 0;
-	while (lst)
+	while (str[i] != '\0')
 	{
+		ft_putchar_fd(str[i], 1);
 		i++;
-		lst = lst->next;
+		++(*count);
 	}
-	return (i);
+	return (0);
 }

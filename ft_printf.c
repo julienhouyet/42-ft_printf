@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:18 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/02 14:43:27 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:10:47 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	*ft_convert(int *count, va_list *arg, char var)
 	if (var == 'c')
 		ft_putchar_fd(va_arg(*arg, int), 1);
 	if (var == 's')
-		ft_print_str(arg, count);
+		ft_printf_str(arg, count);
 	if (var == 'd')
 		ft_putnbr_fd(va_arg(*arg, int), 1);
 	if (var == '%')

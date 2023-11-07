@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:15:59 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/10/31 15:10:47 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/03 11:28:59 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_str;
-	size_t	i;
-	size_t	j;
+	size_t	new_len;
 
 	if (!s)
-		return (0);
-	if (ft_strlen(s) < len)
-		len = ft_strlen(s);
-	new_str = (char *)malloc(sizeof(*s) * (len +1));
-	if (!new_str)
-		return (0);
-	i = 0;
-	j = 0;
-	while (s[i])
+		return (NULL);
+	if (ft_strlen(s) < start)
 	{
-		if (i >= start && j < len)
-		{
-			new_str[j] = s[i];
-			j++;
-		}
-		i++;
+		new_str = ft_calloc(1, sizeof(char));
+		if (!new_str)
+			return (NULL);
 	}
-	new_str[j] = '\0';
+	else
+	{
+		new_len = ft_strlen(s + start);
+		if (!(new_len < len))
+			new_len = len;
+		new_str = (char *)malloc((new_len + 1) * sizeof(char));
+		if (!new_str)
+			return (NULL);
+		new_str[new_len] = 0;
+		while (new_len-- > 0)
+			new_str[new_len] = s[start + new_len];
+	}
 	return (new_str);
 }

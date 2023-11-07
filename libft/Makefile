@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jhouyet <jhouyet@student.s19.be>           +#+  +:+       +#+         #
+#    By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 09:14:53 by jhouyet           #+#    #+#              #
-#    Updated: 2023/10/30 13:07:25 by jhouyet          ###   ########.fr        #
+#    Updated: 2023/11/07 14:48:42 by jhouyet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
-SRCS_P1		=	ft_isalpha.c \
+SRCS		=	ft_isalpha.c \
 				ft_isdigit.c \
 				ft_isalnum.c \
 				ft_isascii.c \
@@ -33,9 +33,8 @@ SRCS_P1		=	ft_isalpha.c \
 				ft_memcmp.c \
 				ft_strnstr.c \
 				ft_calloc.c \
-				ft_strdup.c
-
-SRCS_P2		= 	ft_atoi.c \
+				ft_strdup.c \
+				ft_atoi.c \
 				ft_substr.c \
 				ft_strjoin.c \
 				ft_strtrim.c \
@@ -46,46 +45,41 @@ SRCS_P2		= 	ft_atoi.c \
 				ft_putchar_fd.c \
 				ft_putstr_fd.c \
 				ft_putnbr_fd.c \
-				ft_putendl_fd.c
+				ft_putendl_fd.c	\
+				ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
 
-SRCS_B		=	ft_lstnew_bonus.c \
-				ft_lstadd_front_bonus.c \
-				ft_lstsize_bonus.c \
-				ft_lstlast_bonus.c \
-				ft_lstadd_back_bonus.c \
-				ft_lstdelone_bonus.c \
-				ft_lstclear_bonus.c \
-				ft_lstiter_bonus.c \
-				ft_lstmap_bonus.c
+OBJS	= ${SRCS:.c=.o}
 
-OBJS_P1 = $(SRCS_P1:.c=.o)
-OBJS_P2 = $(SRCS_P2:.c=.o)
-OBJS_B	= $(SRCS_B:.c=.o)
+CC		= gcc
 
-CC			= gcc
-FLAGS		= -Wall -Wextra -Werror
-LIB			= ar rcs
+RM		= rm -f
 
-all: $(NAME)
+CFLAGS	= -Wall -Wextra -Werror
 
-%.o: %.c
-	$(CC) $(FLAGS) -o $@ -c $<
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME): $(OBJS_P1) $(OBJS_P2)
-	$(LIB) $@ $^
+${NAME}: ${OBJS}
+	ar rc ${NAME} ${OBJS}
 
-bonus: 		$(OBJS_B) $(OBJS_P1) $(OBJS_P2)
-			$(LIB) $(NAME) $^
+all: ${NAME}
 
-norm:
-	norminette
+$(OBJSB): $(SRCSB)
 
 clean:
-	rm -f $(OBJS_P1) $(OBJS_P2) $(OBJS_B)
+	${RM} ${OBJSB} ${OBJS}
 
 fclean: clean
-	rm -f $(NAME)
+	${RM} $(NAME)
 
-re: fclean all
+re:	fclean all
 
 .PHONY:	all clean fclean re
