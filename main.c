@@ -1,4 +1,4 @@
-#include "ft_printff.h"
+#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 
@@ -12,63 +12,63 @@ int	main(void)
 	/*
 	int written;
 
-	written = ft_printff("%c", '0');
+	written = ft_printf("%c", '0');
     printf("\nCharacters written: %d\n\n", written);
 	written = printf("%c", '0');
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c ", '0');
+	written = ft_printf(" %c ", '0');
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c ", '0');
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c", '0' - 256);
+	written = ft_printf(" %c", '0' - 256);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c", '0' - 256);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff("%c ", '0' + 256);
+	written = ft_printf("%c ", '0' + 256);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf("%c ", '0' + 256);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c %c %c ", '0', 0, '1');
+	written = ft_printf(" %c %c %c ", '0', 0, '1');
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c %c %c ", '0', 0, '1');
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c %c %c ", ' ', ' ', ' ');
+	written = ft_printf(" %c %c %c ", ' ', ' ', ' ');
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c %c %c ", ' ', ' ', ' ');
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c %c %c ", '1', '2', '3');
+	written = ft_printf(" %c %c %c ", '1', '2', '3');
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c %c %c ", '1', '2', '3');
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c %c %c ", '2', '1', 0);
+	written = ft_printf(" %c %c %c ", '2', '1', 0);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c %c %c ", '2', '1', 0);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %c %c %c ", 0, '1', '2');
+	written = ft_printf(" %c %c %c ", 0, '1', '2');
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %c %c %c ", 0, '1', '2');
     printf("\nCharacters written: %d\n\n", written);
@@ -83,70 +83,70 @@ int	main(void)
 	int written;
 	char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
 
-	written = ft_printff("%s", "");
+	written = ft_printf("%s", "");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf("%s", "");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s", "");
+	written = ft_printf(" %s", "");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s", "");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff("%s ", "");
+	written = ft_printf("%s ", "");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf("%s ", "");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s ", "");
+	written = ft_printf(" %s ", "");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s ", "");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s ", "-");
+	written = ft_printf(" %s ", "-");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s ", "-");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s %s ", "", "-");
+	written = ft_printf(" %s %s ", "", "-");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s %s ", "", "-");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s %s ", " - ", "");
+	written = ft_printf(" %s %s ", " - ", "");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s %s ", " - ", "");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s %s %s %s %s", " - ", "", "4", "", s2);
+	written = ft_printf(" %s %s %s %s %s", " - ", "", "4", "", s2);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s %s %s %s %s", " - ", "", "4", "", s2);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %s %s %s %s %s ", " - ", "", "4", "", "2 ");
+	written = ft_printf(" %s %s %s %s %s ", " - ", "", "4", "", "2 ");
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %s %s %s %s %s ", " - ", "", "4", "", "2 ");
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" NULL %s NULL ", NULL);
+	written = ft_printf(" NULL %s NULL ", NULL);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" NULL %s NULL ", NULL);
     printf("\nCharacters written: %d\n\n", written);
@@ -164,63 +164,63 @@ int	main(void)
 
 	int written;
 
-	written = ft_printff(" %p ", -1);
+	written = ft_printf(" %p ", -1);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p ", -1);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p ", 1);
+	written = ft_printf(" %p ", 1);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p ", 1);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p ", 15);
+	written = ft_printf(" %p ", 15);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p ", 15);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p ", 16);
+	written = ft_printf(" %p ", 16);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p ", 16);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 	
-	written = ft_printff(" %p ", 17);
+	written = ft_printf(" %p ", 17);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p ", 17);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p %p ", LONG_MIN, LONG_MAX);
+	written = ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p %p ", LONG_MIN, LONG_MAX);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p %p ", INT_MIN, INT_MAX);
+	written = ft_printf(" %p %p ", INT_MIN, INT_MAX);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p %p ", INT_MIN, INT_MAX);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p %p ", ULONG_MAX, -ULONG_MAX);
+	written = ft_printf(" %p %p ", ULONG_MAX, -ULONG_MAX);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p %p ", ULONG_MAX, -ULONG_MAX);
     printf("\nCharacters written: %d\n\n", written);
 
 	printf("-------------------------------\n\n");
 
-	written = ft_printff(" %p %p ", 0, 0);
+	written = ft_printf(" %p %p ", 0, 0);
     printf("\nCharacters written: %d\n\n", written);
 	written = printf(" %p %p ", 0, 0);
     printf("\nCharacters written: %d\n\n", written);
