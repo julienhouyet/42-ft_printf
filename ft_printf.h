@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:20 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 11:00:53 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 12:37:20 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@
 # include <unistd.h>
 
 int		ft_printf(const char *str, ...);
+
+int		ft_count_nbr(int nb);
+int		ft_count_nbr_unsigned(unsigned int nb);
+int		ft_count_hexa(unsigned long nb);
+
 int		ft_printf_char(va_list arg);
 int		ft_printf_str(va_list arg);
 int		ft_printf_pointer(va_list arg);
 int		ft_printf_number(va_list arg);
+int		ft_printf_unsigned_number(va_list arg);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);

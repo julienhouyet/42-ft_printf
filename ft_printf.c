@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:18 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 11:00:37 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 12:41:24 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_convert(va_list arg, char var)
 	if (var == 'd' || var == 'i')
 		return (ft_printf_number(arg));
 	if (var == 'u')
-		return (0);
+		return (ft_printf_unsigned_number(arg));
 	if (var == 'x')
 		return (0);
 	if (var == 'X')

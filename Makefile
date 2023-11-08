@@ -6,17 +6,19 @@
 #    By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 08:29:30 by jhouyet           #+#    #+#              #
-#    Updated: 2023/11/08 11:01:04 by jhouyet          ###   ########.fr        #
+#    Updated: 2023/11/08 12:35:12 by jhouyet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
 SRCS		= 	ft_printf.c \
+				ft_printf_count.c \
 				ft_printf_char.c \
 				ft_printf_str.c \
 				ft_printf_pointer.c \
 				ft_printf_number.c \
+				ft_printf_unsigned_number.c \
 				ft_libft.c
 
 OBJS		= ${SRCS:.c=.o}\

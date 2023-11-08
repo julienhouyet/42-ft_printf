@@ -6,26 +6,11 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 07:53:26 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 11:22:45 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 12:27:37 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_count_hexa(unsigned long nb)
-{
-	int	count;
-
-	if (nb == 0)
-		return (1);
-	count = 0;
-	while (nb)
-	{
-		nb = nb / 16;
-		count++;
-	}
-	return (count);
-}
 
 char	ft_printf_hexa_pointer_fd(unsigned long nb, int fd)
 {
