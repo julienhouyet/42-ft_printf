@@ -6,23 +6,33 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:18 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/07 15:10:47 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 09:28:04 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	*ft_convert(int *count, va_list *arg, char var)
+int	ft_convert(va_list arg, char var)
 {
 	if (var == 'c')
-		ft_putchar_fd(va_arg(*arg, int), 1);
+		return (ft_printf_char(arg));
 	if (var == 's')
-		ft_printf_str(arg, count);
-	if (var == 'd')
-		ft_putnbr_fd(va_arg(*arg, int), 1);
+		return (ft_printf_str(arg));
+	if (var == 'p')
+		return (0);
+	/*
+	if (var == 'd' || var == 'i')
+		return (ft_putnbr_fd(va_arg(*arg, int), 1));
+	if (var == 'u')
+		return (0);
+	if (var == 'x')
+		return (0);
+	if (var == 'X')
+		return (0);
 	if (var == '%')
 		ft_putchar_fd('%', 1);
-	return (0);
+		*/
+	return (-1);
 }
 
 int	ft_printf(const char *str, ...)
@@ -30,23 +40,25 @@ int	ft_printf(const char *str, ...)
 	va_list	argptr;
 	int		count;
 	int		i;
+	int		size;
 
 	count = 0;
-	i = 0;
+	i = -1;
 	va_start(argptr, str);
-	while (str[i] != '\0')
+	while (str[++i])
 	{
 		if (str[i] == '%')
 		{
-			ft_convert(&count, &argptr, str[i + 1]);
-			++i;
+			size = ft_convert(argptr, str[++i]);
+			if (size == -1)
+				return (-1);
+			count += size;
 		}
 		else 
 		{
 			ft_putchar_fd(str[i], 1);
+			++count;
 		}
-		++count;
-		++i;
 	}
 	va_end(argptr);
 	return (count);
