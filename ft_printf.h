@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:20 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 09:02:57 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 11:00:53 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 int		ft_printf(const char *str, ...);
 int		ft_printf_char(va_list arg);
 int		ft_printf_str(va_list arg);
+int		ft_printf_pointer(va_list arg);
+int		ft_printf_number(va_list arg);
+
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);

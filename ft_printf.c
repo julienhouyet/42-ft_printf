@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:18 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 09:28:04 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 11:00:37 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	ft_convert(va_list arg, char var)
 	if (var == 's')
 		return (ft_printf_str(arg));
 	if (var == 'p')
-		return (0);
-	/*
+		return (ft_printf_pointer(arg));
 	if (var == 'd' || var == 'i')
-		return (ft_putnbr_fd(va_arg(*arg, int), 1));
+		return (ft_printf_number(arg));
 	if (var == 'u')
 		return (0);
 	if (var == 'x')
@@ -30,8 +29,10 @@ int	ft_convert(va_list arg, char var)
 	if (var == 'X')
 		return (0);
 	if (var == '%')
+	{
 		ft_putchar_fd('%', 1);
-		*/
+		return (1);
+	}
 	return (-1);
 }
 
