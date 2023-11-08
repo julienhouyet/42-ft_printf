@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:36:14 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 10:55:33 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:59:47 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	ft_printf_str(va_list arg)
 	char	*str;
 	int		i;
 
-	if (!arg)
-		return (0);
 	str = va_arg(arg, char *);
 	i = 0;
 	if (!str)

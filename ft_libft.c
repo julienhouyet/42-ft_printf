@@ -6,7 +6,7 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:26 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/07 15:33:44 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:44:12 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,29 @@ void	ft_putstr_fd(char *s, int fd)
 	if (!s || fd < 0)
 		return ;
 	write(fd, s, ft_strlen(s));
+}
+
+void	ft_puthexa_fd(unsigned long nb, char var, int fd)
+{
+	if (nb >= 16)
+	{
+		ft_puthexa_fd(nb / 16, var, fd);
+		ft_puthexa_fd(nb % 16, var, fd);
+	}
+	else 
+	{
+		if (nb <= 9)
+		{
+			ft_putchar_fd(nb + '0', fd);
+		}
+		else
+		{
+			if (var == 'x')
+				ft_putchar_fd(nb % 10 + 'a', fd);
+			if (var == 'X')
+				ft_putchar_fd(nb % 10 + 'A', fd);
+		}
+	}
 }
 
 size_t	ft_strlen(const char *s)

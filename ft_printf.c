@@ -6,13 +6,13 @@
 /*   By: jhouyet <jhouyet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:30:18 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/11/08 12:41:24 by jhouyet          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:51:33 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_convert(va_list arg, char var)
+static int	ft_convert(va_list arg, char var)
 {
 	if (var == 'c')
 		return (ft_printf_char(arg));
@@ -24,10 +24,8 @@ int	ft_convert(va_list arg, char var)
 		return (ft_printf_number(arg));
 	if (var == 'u')
 		return (ft_printf_unsigned_number(arg));
-	if (var == 'x')
-		return (0);
-	if (var == 'X')
-		return (0);
+	if (var == 'x' || var == 'X')
+		return (ft_printf_hexa(var, arg));
 	if (var == '%')
 	{
 		ft_putchar_fd('%', 1);

@@ -18,6 +18,15 @@
 		"vector": "c",
 		"__bit_reference": "c",
 		"algorithm": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"__functional_base": "c",
+		"__functional_base_03": "c",
+		"__tuple": "c",
+		"type_traits": "c",
+		"functional": "c",
+		"limits": "c",
+		"memory": "c",
+		"ratio": "c",
+		"tuple": "c"
 	}
 }
