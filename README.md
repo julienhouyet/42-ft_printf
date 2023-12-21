@@ -5,3 +5,5 @@
 # Introduction
 
 By now, you must be fed up alternating the ft_putstr and ft_putnbr functions when doing your printing. Are you not allowed to use printf? You can recode yours! It will be a chance for you to discover a feature of the C language – variadic functions – and to practice detailed management of the printing options. You will then be allowed to use your ft_printf in all your future projects.
+
+At [42 School](https://github.com/42School), almost every project must be written in accordance to the [Norm](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf), the school's coding standard. As a result, the implementation of certain parts may appear strange and for sure had room for improvement.
