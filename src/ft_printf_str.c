@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hexa.c                                   :+:      :+:    :+:   */
+/*   ft_printf_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhouyet <jhouyet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 07:53:12 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/12/15 09:33:52 by jhouyet          ###   ########.fr       */
+/*   Created: 2023/11/02 14:36:14 by jhouyet           #+#    #+#             */
+/*   Updated: 2023/12/21 09:42:13 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "include/ft_printf.h"
 
-int	ft_printf_hexa(char var, va_list *arg)
+int	ft_printf_str(va_list *arg)
 {
-	unsigned int	nb;
-	int				count;
+	char	*str;
+	int		i;
 
-	nb = va_arg(*arg, unsigned int);
-	count = ft_count_hexa(nb);
-	ft_puthexa_fd(nb, var, 1);
-	return (count);
+	str = va_arg(*arg, char *);
+	i = 0;
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	while (str[i] != '\0')
+	{
+		ft_putchar_fd(str[i], 1);
+		i++;
+	}
+	return (i);
 }

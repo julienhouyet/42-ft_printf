@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_number.c                                 :+:      :+:    :+:   */
+/*   ft_printf_unsigned_number.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhouyet <jhouyet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 07:53:16 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/12/15 09:33:56 by jhouyet          ###   ########.fr       */
+/*   Created: 2023/11/08 07:53:28 by jhouyet           #+#    #+#             */
+/*   Updated: 2023/12/21 09:42:15 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "include/ft_printf.h"
 
-int	ft_printf_number(va_list *arg)
+int	ft_printf_unsigned_number(va_list *arg)
 {
-	int	nb;
-	int	count;
+	unsigned int	nb;
+	int				count;
 
-	nb = va_arg(*arg, int);
-	count = ft_count_nbr(nb);
-	ft_putnbr_fd(nb, 1);
+	nb = va_arg(*arg, unsigned int);
+	count = ft_count_nbr_unsigned(nb);
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, 1);
+		ft_putnbr_fd(nb % 10, 1);
+	}
+	else
+		ft_putchar_fd(nb + '0', 1);
 	return (count);
 }

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_pointer.c                                :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhouyet <jhouyet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 07:53:26 by jhouyet           #+#    #+#             */
-/*   Updated: 2023/12/15 09:33:59 by jhouyet          ###   ########.fr       */
+/*   Created: 2023/11/08 08:47:08 by jhouyet           #+#    #+#             */
+/*   Updated: 2023/12/21 09:41:51 by jhouyet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "include/ft_printf.h"
 
-int	ft_printf_pointer(va_list *arg)
+int	ft_printf_char(va_list *arg)
 {
-	unsigned long	nb;
-	int				count;
-
-	nb = va_arg(*arg, unsigned long);
-	count = ft_count_hexa(nb);
-	ft_putstr_fd("0x", 1);
-	ft_puthexa_fd(nb, 'x', 1);
-	return (count + 2);
+	char	c;
+	
+	c = va_arg(*arg, int);
+	ft_putchar_fd(c, 1);
+	return (1);
 }
