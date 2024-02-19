@@ -70,4 +70,4 @@ int ft_printf( const char *str, ... );
 ##  :lock: License
 
 GNU GENERAL PUBLIC LICENSE
-Version 3
+Version 3.
