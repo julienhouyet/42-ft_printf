@@ -66,8 +66,3 @@ int ft_printf( const char *str, ... );
 - [x] `%x` - Print a number in hexadecimal (base 16) lowercase format;
 - [x] `%X` - Print a number in hexadecimal (base 16) uppercase format;
 - [x] `%%` - Print a percentage sign;
-
-##  :lock: License
-
-GNU GENERAL PUBLIC LICENSE
-Version 3.
